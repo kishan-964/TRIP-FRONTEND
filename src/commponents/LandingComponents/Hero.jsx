@@ -3,7 +3,7 @@ import CustomButtton from '../common/CustomButtton'
 
 const Hero = () => {
   return (
-    <section className='relative h-[94dvh] overflow-hidden flex items-center justify-center' >
+    <section className='relative h-[92dvh] overflow-hidden flex items-center justify-center' >
 
       {/* background image */}
      <div>
@@ -11,7 +11,7 @@ const Hero = () => {
      </div>
 
       {/* black overlay */}
-      <div className='h-[94dvh] w-full bg-black  absolute opacity-60 left-0 top-0'></div>
+      <div className='h-[92dvh] w-full bg-black  absolute opacity-60 left-0 top-0'></div>
 
       {/* main content */}
       <div className='absolute w-1/2 m-auto text-center'>
