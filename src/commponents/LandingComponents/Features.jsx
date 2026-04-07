@@ -34,7 +34,7 @@ const Features = () => {
 
        <div>
          <h2 className='text-5xl font-bold text-center mb-10'><span className='text-blue-500 text-6xl'>O</span>ur Features</h2>
-
+           
        </div>
 
          {/* content */}
