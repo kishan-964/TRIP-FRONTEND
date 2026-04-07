@@ -1,5 +1,6 @@
 import React from 'react'
 import CustomButtton from '../common/CustomButtton'
+import {Button } from "@/components/ui/button"
 
 const Hero = () => {
   return (
@@ -27,7 +28,6 @@ const Hero = () => {
           <CustomButtton text="Get Started" />
 
       </div>
-
     </section>
   )
 }
