@@ -27,8 +27,15 @@ const Register = () => {
         }
 
     })
+    
+    const onSubmit = (data) => {
+        console.log(data)
+    }
+
   return (
-    <div>Register</div>
+     <form onSubmit={form.handleSubmit(onSubmit)}>
+        
+     </form>
   )
 }
 
