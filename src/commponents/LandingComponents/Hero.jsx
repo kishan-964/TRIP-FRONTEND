@@ -21,11 +21,11 @@ const Hero = () => {
           <br />Uncover the hidden gems and create unforgettable memories.Unbeatable trop expriences for memorires</p>
 
 
-          <a href="/login">
-
+          <a href="/register">
+          <CustomButtton text="Get Started" />
           </a>
 
-          <CustomButtton text="Get Started" />
+          
 
       </div>
     </section>
