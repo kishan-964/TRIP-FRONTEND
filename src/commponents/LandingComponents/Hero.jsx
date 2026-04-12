@@ -25,6 +25,7 @@ const Hero = () => {
           <CustomButtton text="Get Started" />
           </a>
 
+
           
 
       </div>
