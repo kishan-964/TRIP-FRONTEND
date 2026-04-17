@@ -15,17 +15,24 @@ import {
 import { Field, FieldError, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Button } from "@/components/ui/button"
-import CustomButtton from '@/commponents/common/CustomButtton'
+import { useNavigate } from 'react-router-dom'
+import useAuth from '@/hooks/useAuth'
+import { toast } from 'sonner'
 
 
 
-// ✅ Schema
+
+
 const formSchema = z.object({
   email: z.string().email().min(5, "Email must be at least 5 characters"),
   password: z.string().min(8, "Password must be at least 8 characters"),
 })
 
 const Login = () => {
+
+  const navigate = useNavigate();
+  const {  login } = useAuth();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -34,21 +41,38 @@ const Login = () => {
     }
   })
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data)
+    try{
+            const response = await api.post("/auth/login", data);
+            console.log(response);  
+
+            if(response.status === 201){
+                toast.success("Login Successful!")
+                login(data, response.data.accessToken)
+                navigate("/dashboard");
+            }else{
+                toast.error("Login failed. Please try again.")
+            }
+        }catch (error){
+            console.error("Login failed:", error);
+            toast.error("Login failed. Please try again.")
+        }
   }
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)}>
-      <Card>
+      <Card className="w-1/4 mx-auto my-auto mt-24">
         <CardHeader>
-          <CardTitle>Login</CardTitle>
-          <CardDescription>Enter your Details</CardDescription>
+          <CardTitle className="text-2xl font-bold text-center text-blue-500">Login</CardTitle>
+          <CardDescription className="text-center text-blue-950">
+            Enter your Details
+          </CardDescription>
         </CardHeader>
 
         <CardContent className="space-y-4">
           
-          {/* Email */}
+          
           <Controller
             name="email"
             control={form.control}
@@ -91,10 +115,13 @@ const Login = () => {
 
         </CardContent>
 
-        <CardFooter>
+        <CardFooter className="block">
           <Button className="w-full" type="submit">
             Login
           </Button>
+          <div className="text-sm text-center text-blue-950">
+            Don't have an account? <a href="/register" className="text-blue-500">Register</a>
+          </div>
         </CardFooter>
       </Card>
     </form>

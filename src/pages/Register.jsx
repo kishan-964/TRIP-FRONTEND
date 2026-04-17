@@ -14,6 +14,8 @@ import {
 import { Field, FieldError, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import api from '@/api/axios'
+import { toast } from 'sonner'
 
 const formSchema = z.object({
     name: z.string().min(3, "Name must be at least 3 characters"),
@@ -40,8 +42,27 @@ const Register = () => {
 
     })
     
-    const onSubmit = (data) => {
+    const onSubmit = async(data) => {
         console.log(data)
+         const newData = {
+            name: data.name,
+            email: data.email,
+            password: data.password
+        }
+        try{
+            const response = await api.post("/auth/register", newData);
+            console.log(response);  
+
+            if(response.status === 201){
+                toast.success("Registration Successful!")
+                navigate("/login");
+            }else{
+                toast.error("Registration failed. Please try again.")
+            }
+        }catch (error){
+            console.error("Registration failed:", error);
+            toast.error("Registration failed. Please try again.")
+        }
     }
 
   return (
@@ -104,12 +125,16 @@ const Register = () => {
                 />
                 
             </CardContent>
-            <CardFooter>
+            <CardFooter className="block">
+
                 <Button className="w-full" type="submit">
                     submit
-                    </Button> 
-                
+                </Button>
+                <div className='text-center text-muted-foreground'>
+                    Already have an account? <a href="/login" className='text-blue-500'>Login</a>
+                </div>
             </CardFooter>
+           
         </Card>
      </form>
   )

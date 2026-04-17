@@ -1,12 +1,18 @@
 import React from 'react'
 import CustomButtton from './CustomButtton'
+import { Plane } from 'lucide-react'
 
 const Navbar = () => {
   return (
     <header className='px-20 py-6 flex items-center justify-between'>
       {/* left part */}
       <div>
-       <h1 className='text-4xl font-semibold'><span className='text-blue-500 text-5xl'>C</span>halti<span className='text-blue-500'>T</span>rip</h1>   
+        
+       <h1 className='text-4xl font-semibold'>
+         <span className='text-blue-500 text-5xl'>C</span>halti
+         <Plane className='inline-block text-blue-500 mx-2' size={35} />
+         <span className='text-blue-500'>T</span>rip
+       </h1>
        </div>
          {/* right part */}
         <div className='flex items-center gap-16'>
