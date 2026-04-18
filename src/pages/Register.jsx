@@ -1,6 +1,7 @@
 import React from 'react'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
+import { useNavigate } from "react-router-dom"
 import * as z from "zod"
 import {
   Card,
@@ -42,6 +43,8 @@ const Register = () => {
 
     })
     
+    const navigate = useNavigate();
+
     const onSubmit = async(data) => {
         console.log(data)
          const newData = {
@@ -66,13 +69,22 @@ const Register = () => {
     }
 
   return (
-     <form onSubmit={form.handleSubmit(onSubmit)}>
-        <Card className="w-1/4 mx-auto my-auto mt-24">
-            <CardHeader>
+    <div
+      className="min-h-screen bg-cover bg-center relative"
+      style={{ backgroundImage: "url('/Bg.jpg')" }}
+    >
+      <div className="absolute inset-0 bg-black/50" />
+      <div className="relative flex min-h-screen items-center justify-center px-4 py-16">
+
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-md">
+
+          <Card className="mx-auto bg-sky-100">
+            <CardHeader >
+                
                 <CardTitle className='text-2xl font-bold text-center text-blue-500'>
                     Register to ChaltiTrip
                 </CardTitle>
-                <CardDescription className="text-1xl text-center text-blue-950">
+                <CardDescription className="text-1xl text-center text-black">
                     Enter your to get started with ChaltiTrip
                 </CardDescription>
             </CardHeader>
@@ -85,7 +97,7 @@ const Register = () => {
 
                     <Field data-invalid={fieldState.invalid}>
                      <FieldLabel htmlFor={field.name}>Name</FieldLabel>
-                      <Input type="name" placeholder=" your Name" {...field} id={field.name} aria-invalid={fieldState.invalid} />
+                      <Input className="border-black" type="name" placeholder=" your Name" {...field} id={field.name} aria-invalid={fieldState.invalid} />
                       {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
                     </Field>
                   )}
@@ -96,7 +108,7 @@ const Register = () => {
                     render={({ field, fieldState }) => (
                    <Field data-invalid={fieldState.invalid}>
                      <FieldLabel htmlFor={field.name}>Email</FieldLabel>
-                     <Input type="Email"{...field} id={field.name} aria-invalid={fieldState.invalid} />
+                     <Input className="border-black" type="Email"{...field} id={field.name} aria-invalid={fieldState.invalid} />
                         {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
                    </Field>
                     )}
@@ -107,7 +119,7 @@ const Register = () => {
                     render={({ field, fieldState }) => (
                    <Field data-invalid={fieldState.invalid}>
                      <FieldLabel htmlFor={field.name}>Password</FieldLabel>
-                     <Input type="password"{...field} id={field.name} aria-invalid={fieldState.invalid} />
+                     <Input className="border-black" type="password"{...field} id={field.name} aria-invalid={fieldState.invalid} />
                         {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
                    </Field>
                     )}
@@ -118,7 +130,7 @@ const Register = () => {
                     render={({ field, fieldState }) => (
                    <Field data-invalid={fieldState.invalid}>
                      <FieldLabel htmlFor={field.name}>Confirm Password</FieldLabel>
-                     <Input type="password"{...field} id={field.name} aria-invalid={fieldState.invalid} />
+                     <Input className="border-black" type="password"{...field} id={field.name} aria-invalid={fieldState.invalid} />
                         {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
                    </Field>
                     )}
@@ -137,6 +149,8 @@ const Register = () => {
            
         </Card>
      </form>
+      </div>
+    </div>
   )
 }
 
