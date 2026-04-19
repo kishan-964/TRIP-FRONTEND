@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button"
 import { useNavigate } from 'react-router-dom'
 import useAuth from '@/hooks/useAuth'
 import { toast } from 'sonner'
+import api from '@/api/axios'
 
 
 
@@ -47,7 +48,7 @@ const Login = () => {
             const response = await api.post("/auth/login", data);
             console.log(response);  
 
-            if(response.status === 201){
+            if(response.status === 200){
                 toast.success("Login Successful!")
                 login(data, response.data.accessToken)
                 navigate("/dashboard");

@@ -4,7 +4,8 @@ import { Plane } from 'lucide-react'
 
 const Navbar = () => {
   return (
-    <header className='px-20 py-6 flex items-center justify-between'>
+    
+    <header className='px-20 py-6 flex items-center justify-between bg-violet-50' >
       {/* left part */}
       <div>
         
