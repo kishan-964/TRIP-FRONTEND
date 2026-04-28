@@ -15,7 +15,7 @@ import {
 import { Field, FieldError, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Button } from "@/components/ui/button"
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import useAuth from '@/hooks/useAuth'
 import { toast } from 'sonner'
 import api from '@/api/axios'
@@ -32,7 +32,13 @@ const formSchema = z.object({
 const Login = () => {
 
   const navigate = useNavigate();
-  const {  login } = useAuth();
+  const {  token, login } = useAuth();
+
+  if(token){
+    return (
+      <Navigate to="/dashboard" />
+    )
+  }
 
   const form = useForm({
     resolver: zodResolver(formSchema),

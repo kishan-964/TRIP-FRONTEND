@@ -1,7 +1,7 @@
 import React from 'react'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
-import { useNavigate } from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom"
 import * as z from "zod"
 import {
   Card,
@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import api from '@/api/axios'
 import { toast } from 'sonner'
+import useAuth from '@/hooks/useAuth'
 
 const formSchema = z.object({
     name: z.string().min(3, "Name must be at least 3 characters"),
@@ -44,6 +45,12 @@ const Register = () => {
     })
     
     const navigate = useNavigate();
+    const { token } = useAuth();
+      if(token){
+        return (
+            <Navigate to="/dashboard" />
+        )
+     }
 
     const onSubmit = async(data) => {
         console.log(data)

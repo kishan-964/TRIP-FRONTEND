@@ -5,8 +5,19 @@ import Hero from '../commponents/LandingComponents/Hero'
 import Features from '../commponents/LandingComponents/Features'
 import FAQ from '../commponents/LandingComponents/FAQ'
 import Login from './Login'
+import useAuth from '@/hooks/useAuth'
+import { Navigate } from 'react-router-dom'
+
+
 
 const Landing = () => {
+  const { token } = useAuth();
+
+  if(token){
+    return (
+      <Navigate to="/dashboard" />
+    )
+  }
   return (
     <div>
       
