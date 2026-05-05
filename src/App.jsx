@@ -10,6 +10,7 @@ import { jwtDecode } from 'jwt-decode'
 import AppLayout from './layouts/AppLayout'
 import AddTrip from './pages/trip/AddTrip'
 import EditTrip from './pages/trip/EditTrip'
+import Trips from './pages/trip/Trip'
 
 
 const App = () => {
@@ -59,6 +60,8 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/trips/add" element={<AddTrip />} />
         <Route path="/trips/edit/:id" element={<EditTrip />} />
+        <Route path="/trips" element={<Trips />} />
+        
         </Route>
       </Routes>
    </BrowserRouter>
