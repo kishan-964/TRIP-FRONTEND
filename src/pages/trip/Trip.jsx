@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Edit, Eye, EyeIcon, Pencil, Plus, Trash } from "lucide-react";
+import { Edit, Eye, EyeIcon, Pencil, Plus, Trash, Plane } from "lucide-react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -137,17 +137,55 @@ const Trip = () => {
                              <Button variant="outline" size="icon" className={"hover:bg-green-600 text-green-600"}>
                               <Eye />
                              </Button>
+                            
                             </DialogTrigger>
-                            <DialogContent>
-                              <DialogHeader>
-                                <DialogTitle>
-                                  {trip.title}
-                                </DialogTitle>
-                                <DialogDescription>
-                                  {trip.description}
-                                </DialogDescription>
-                              </DialogHeader>
+                            <DialogContent className="max-w-2xl">
+                              <Card>
+                                <CardHeader className="border-b">
+                                  <div className="flex items-center justify-between  bg-gray-100 p-3 rounded mb-4">
+                                    <div className="flex items-center space-x-12">
+                                      <Plane className="h-6 w-6  text-blue-600 " />
+                                      <span className="font-extrabold text-lg">{trip.title}</span>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <img
+                                      src="https://images.unsplash.com/photo-1620914854125-67a1981aae6a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                      alt="Trip Image"
+                                      className="rounded-md w-full h-48 object-cover"
+                                    />
+                                  </div>
+                                  
+                                  <CardDescription>
+                                    {trip.description} 
+                                  </CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                  <div className="grid grid-cols-3 gap-4">
+                                    
+                                    <div className="bg-white p-4 rounded shadow-md">
+                                      <strong>Price:</strong> ₹{trip.price}
+                                    </div>
+                                    <div className="bg-white p-4 rounded shadow-md" >
+                                      <strong>Duration:</strong> {trip.duration.days} days {trip.duration.nights} nights
+                                    </div>
+                                    <div className="bg-white p-4 rounded shadow-md">
+                                      <strong>Start Date:</strong> {formatDate(trip.startDate)}
+                                    </div>
+                                    <div className="bg-white p-4 rounded shadow-md">
+                                      <strong>End Date:</strong> {formatDate(trip.endDate)}
+                                    </div>
+                                    <div className="bg-white p-4 rounded shadow-md">
+                                      <strong>Max Seats:</strong> {trip.maxParticipants}/{trip.availableSeats}
+                                    </div>
+                                   
+                                  </div>
+                                </CardContent>
 
+                                <CardFooter>
+                                  <p className="text-sm text-gray-600 "> Trip Details</p>
+                                </CardFooter>
+                              </Card>
                             </DialogContent>
                           </Dialog>
 

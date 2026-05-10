@@ -2,6 +2,7 @@
 import TripForm from '@/commponents/common/TripForm'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import useApi from '@/hooks/useApi'
+import { Plane } from 'lucide-react'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { endsWith } from 'zod'
@@ -29,8 +30,9 @@ const EditTrip = () => {
 
   return (
      <Card className="w-2/5 mx-auto my-12">
-        <CardHeader>
-            <CardTitle>
+        <CardHeader className="text-center">
+            <CardTitle className="flex items-center justify-center gap-2 font-bold">
+                <Plane className="h-5 w-5 text-blue-600" />
                 Edit Trip
             </CardTitle>
             <CardDescription>

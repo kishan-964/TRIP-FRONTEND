@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import useApi from "@/hooks/useApi";
+import { Plane } from "lucide-react";
 import React from "react";
 
 const ViewTrips = () => {
@@ -19,7 +20,8 @@ const ViewTrips = () => {
 
   return (
     <main className="px-20 py-8">
-      <h1 className="text-3xl font-bold text-blue-600">
+      
+      <h1 className="text-3xl font-bold text-blue-600 text-center">
         Available Trips Package
       </h1>
 
@@ -37,14 +39,22 @@ const ViewTrips = () => {
                       alt="Trip Image" className="rounded-md"
                     />
                   </div>
-                  <CardTitle>{trip.title}</CardTitle>
-                  <CardDescription>{trip.description}</CardDescription>
+                  <CardTitle className="text-center">{trip.title}</CardTitle>
+                  <CardDescription className="text-center">
+                    {trip.description} 
+                  </CardDescription>
                   <CardAction></CardAction>
                 </CardHeader>
                 <CardContent>
-                  <p>Price: ${trip.price}</p>
+                  <div className="space-y-2 grid grid-cols-2 gap-4">
+                    <p className="font-semibold">Price: ${trip.price}</p>
+                    <p><strong>Start Date:</strong> {new Date(trip.startDate).toDateString()}</p>
+                    <p><strong>Duration:</strong> {trip.duration.days} days {trip.duration.nights} nights</p>
+                    <p><strong>End Date:</strong> {new Date(trip.endDate).toDateString()}</p>
+                    <p><strong>Available Seats:</strong> {trip.availableSeats} / {trip.maxParticipants}</p>
+                  </div>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="flex items-center justify-center">
                   <p>Card Footer</p>
                 </CardFooter>
               </Card>
