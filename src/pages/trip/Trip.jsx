@@ -183,7 +183,7 @@ const Trip = () => {
                                 </CardContent>
 
                                 <CardFooter>
-                                  <p className="text-sm text-gray-600 "> Trip Details</p>
+                                 
                                 </CardFooter>
                               </Card>
                             </DialogContent>

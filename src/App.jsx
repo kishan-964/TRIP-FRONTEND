@@ -11,8 +11,9 @@ import AppLayout from './layouts/AppLayout'
 import AddTrip from './pages/trip/AddTrip'
 import EditTrip from './pages/trip/EditTrip'
 import Trips from './pages/trip/Trip'
-import VIewTrips from './pages/client/ViewTrips'
 import ViewTrips from './pages/client/ViewTrips'
+import Bookings from './pages/bookings/bookings'
+import MyBookings from './pages/client/MyBookings'
 
 
 const App = () => {
@@ -65,8 +66,11 @@ const App = () => {
         <Route path="/trips/add" element={<AddTrip />} />
         <Route path="/trips/edit/:id" element={<EditTrip />} />
         <Route path="/trips" element={<Trips />} />
+        <Route path="/bookings" element={<Bookings />} />
+        
 
         <Route path="/client/trips" element={<ViewTrips />} />
+        <Route path="/client/bookings" element={<MyBookings />} />
         
         </Route>
       </Routes>
