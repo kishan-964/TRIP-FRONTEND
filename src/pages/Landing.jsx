@@ -6,6 +6,8 @@ import Features from '../commponents/LandingComponents/Features'
 import FAQ from '../commponents/LandingComponents/FAQ'
 import useAuth from '@/hooks/useAuth'
 import { Navigate } from 'react-router-dom'
+import { ContactCard } from '@/commponents/LandingComponents/Contact'
+
 
 
 
@@ -24,6 +26,7 @@ const Landing = () => {
       <Hero />
       <Features />
       <FAQ />
+      <ContactCard />
       </div>
   )
 }

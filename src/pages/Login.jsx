@@ -19,6 +19,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import useAuth from '@/hooks/useAuth'
 import { toast } from 'sonner'
 import api from '@/api/axios'
+import { jwtDecode } from 'jwt-decode'
 
 
 
@@ -31,33 +32,43 @@ const formSchema = z.object({
 
 const Login = () => {
 
-  const navigate = useNavigate();
-  const {  token, login } = useAuth();
+    const navigate = useNavigate();
+    const { token, login } = useAuth();
 
-  if(token){
-    return (
-      <Navigate to="/dashboard" />
-    )
-  }
+    if(token){
+        const decodedToken = token ? jwtDecode(token) : null;
 
-  const form = useForm({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: "",
-      password: "",
+        return (
+            <Navigate to={decodedToken.role === "admin" ? "/dashboard" : "/client/dashboard"} />
+        )
     }
-  })
 
-  const onSubmit = async (data) => {
-    console.log(data)
-    try{
+    const form = useForm({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            email: "",
+            password: ""
+        }
+    })
+
+
+   const onSubmit = async (data) => {
+        console.log(data)
+          try{
             const response = await api.post("/auth/login", data);
             console.log(response);  
 
             if(response.status === 200){
                 toast.success("Login Successful!")
                 login(data, response.data.accessToken)
-                navigate("/dashboard");
+
+                 const decodedToken =  response.data.accessToken ? jwtDecode(response.data.accessToken) : null;
+
+                 if(decodedToken.role === "admin"){
+                    navigate("/dashboard");
+                 }else{
+                    navigate("/client/dashboard");
+                 }
             }else{
                 toast.error("Login failed. Please try again.")
             }
@@ -65,7 +76,7 @@ const Login = () => {
             console.error("Login failed:", error);
             toast.error("Login failed. Please try again.")
         }
-  }
+    }
 
   return (
     <div
