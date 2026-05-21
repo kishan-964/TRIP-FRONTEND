@@ -3,10 +3,12 @@ import CustomButtton from './CustomButtton'
 import { Plane } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import useAuth from '@/hooks/useAuth'
+import { jwtDecode } from 'jwt-decode'
+
 
 const Navbar = () => {
    const navigate = useNavigate();
-   const {logout} = useAuth();
+   const {token,logout} = useAuth();
 
 
    const handleLogout = () => {
@@ -15,6 +17,8 @@ const Navbar = () => {
     // clear user session or token
     // direct goto Landing page
    }
+
+   const decodedToken = token ? jwtDecode(token) : null;
 
   return (
     
@@ -31,10 +35,24 @@ const Navbar = () => {
          {/* right part */}
         <div className='flex items-center gap-16'>
           <nav className='space-x-8 text-lg text-gray-700 font-medium [&>a]:hover:text-black [&>a]:hover:underline'>
+ {
+            decodedToken.role === "admin" ?
+              <>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/trips">Trips</a>
+                <a href="/bookings">Bookings</a>
+                <a href="/contact-list">Contact List</a>
+                <a href="/blogs">Blogs</a>
+              </>
+              :
+            <>
+            
             <a href="/dashboard">Dashboard</a>
             <a href="/trips">Trip</a>
             <a href="/bookings">Bookings</a>
             <a href="/blogs">Blogs</a>
+            </>
+}
           </nav>
            <div onClick={handleLogout}>
           <CustomButtton text="Logout" href="/logout" />

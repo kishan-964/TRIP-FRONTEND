@@ -45,8 +45,10 @@ const Bookings = () => {
         <main className="px-20 py-8">
             <Card>
                 <CardHeader className="border-b">
-                    <CardTitle>Bookings Page</CardTitle>
-                    <CardDescription>Show all your bookings for trip.</CardDescription>
+                    <CardTitle className="text-center text-2xl font-bold text-blue-600">Bookings Page</CardTitle>
+                    <CardDescription className="text-center text-red-500" >
+                        Show all your bookings for trip.
+                    </CardDescription>
                 </CardHeader>
                 <CardContent>
                     <Table>
@@ -91,7 +93,9 @@ const Bookings = () => {
                     </Table>
                 </CardContent>
                 <CardFooter>
-                    <p>Card Footer</p>
+                    <p >
+                        COPYRIGHT @ KISHANTHAKUR
+                    </p>
                 </CardFooter>
             </Card>
         </main>

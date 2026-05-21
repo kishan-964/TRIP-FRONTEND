@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Send } from "lucide-react"
+import { Contact, Send } from "lucide-react"
 import api from "@/api/axios"
 import { toast } from "sonner"
 
@@ -56,7 +56,7 @@ export function ContactCard() {
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
-            <Input
+            <Input className="border-black"
               id="name"
               placeholder="Your name"
               value={formData.name}
@@ -69,7 +69,7 @@ export function ContactCard() {
 
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
-            <Input
+            <Input className="border-black"
               id="email"
               type="email"
               placeholder="you@example.com"
@@ -83,7 +83,7 @@ export function ContactCard() {
 
           <div className="space-y-2">
             <Label htmlFor="message">Message</Label>
-            <Textarea
+            <Textarea className="border-black"
               id="message"
               placeholder="Write your message here..."
               rows={4}
