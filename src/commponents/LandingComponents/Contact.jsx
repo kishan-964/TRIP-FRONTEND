@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Contact, Send } from "lucide-react"
+import { Send } from "lucide-react"
 import api from "@/api/axios"
 import { toast } from "sonner"
 
@@ -42,11 +42,12 @@ export function ContactCard() {
   }
 
   return (
-    <Card className=" w-full max-w-md border border-border/50 mx-125 bg-[#d5bbff5d]">
-      <CardHeader className="space-y-2 pb-6">
-        <CardTitle className="text-3xl font-bold tracking-tight text-foreground text-center">
-          <span className="text-blue-600 text-4xl">C</span>ontact Us
-        </CardTitle>
+    <div className="flex justify-center px-4 py-10">
+      <Card className="w-full max-w-md border border-border/50 mx-auto bg-[#d5bbff5d]">
+        <CardHeader className="space-y-2 pb-6">
+          <CardTitle className="text-3xl font-bold tracking-tight text-foreground text-center">
+            <span className="text-blue-600 text-4xl">C</span>ontact Us
+          </CardTitle>
         <CardDescription className="text-muted-foreground">
           Have a question or feedback? Fill out the form below and we&apos;ll get back to you shortly.
         </CardDescription>
@@ -102,5 +103,6 @@ export function ContactCard() {
         </form>
       </CardContent>
     </Card>
+  </div>
   )
 }
