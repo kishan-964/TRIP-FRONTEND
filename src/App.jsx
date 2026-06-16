@@ -15,6 +15,7 @@ import ViewTrips from './pages/client/ViewTrips'
 import Bookings from './pages/bookings/bookings'
 import MyBookings from './pages/client/MyBookings'
 import ContactList from './pages/contacts/ContactList'
+import Blogs from './pages/client/Blog'
 
 
 const App = () => {
@@ -73,6 +74,7 @@ const App = () => {
 
         <Route path="/client/trips" element={<ViewTrips />} />
         <Route path="/client/bookings" element={<MyBookings />} />
+        <Route path="/client/blog" element={<Blogs />} />
         
         </Route>
       </Routes>

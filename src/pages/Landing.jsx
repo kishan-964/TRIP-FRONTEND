@@ -7,6 +7,11 @@ import FAQ from '../commponents/LandingComponents/FAQ'
 import useAuth from '@/hooks/useAuth'
 import { Navigate } from 'react-router-dom'
 import { ContactCard } from '@/commponents/LandingComponents/Contact'
+import { About } from '@/commponents/LandingComponents/About'
+import { Gallery } from '@/commponents/LandingComponents/Gallery'
+import { Connections } from '@/commponents/LandingComponents/Connection'
+import { Testimonials } from '@/commponents/LandingComponents/Testinonials'
+import { Footer } from '@/commponents/LandingComponents/Footer'
 
 
 
@@ -24,9 +29,16 @@ const Landing = () => {
       
       <Navbar />
       <Hero />
+      <Gallery />
+      <About />
       <Features />
       <FAQ />
+      <Connections />
+      <Testimonials />
       <ContactCard />
+      <Footer />
+      
+
       </div>
   )
 }
