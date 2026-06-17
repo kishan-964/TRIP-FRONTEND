@@ -43,7 +43,7 @@ export function Footer() {
               <div className="w-8 h-8 bg-primary-foreground rounded-lg flex items-center justify-center">
                 <MapPin className="w-5 h-5 text-primary" />
               </div>
-              <span className="text-xl font-bold">TripHub</span>
+              <span className="text-xl font-bold">ChaltiTrip</span>
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
               Your ultimate travel companion for planning unforgettable adventures.
