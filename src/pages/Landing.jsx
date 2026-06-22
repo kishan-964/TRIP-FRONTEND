@@ -6,12 +6,13 @@ import Features from '../commponents/LandingComponents/Features'
 import FAQ from '../commponents/LandingComponents/FAQ'
 import useAuth from '@/hooks/useAuth'
 import { Navigate } from 'react-router-dom'
-import { ContactCard } from '@/commponents/LandingComponents/Contact'
-import { About } from '@/commponents/LandingComponents/About'
-import { Gallery } from '@/commponents/LandingComponents/Gallery'
-import { Connections } from '@/commponents/LandingComponents/Connection'
-import { Testimonials } from '@/commponents/LandingComponents/Testinonials'
-import { Footer } from '@/commponents/LandingComponents/Footer'
+import ContactCard from '@/commponents/LandingComponents/Contact'
+import About from '@/commponents/LandingComponents/About'
+import Gallery from '@/commponents/LandingComponents/Gallery'
+import Destinations from '@/commponents/LandingComponents/Desitinations'
+import Connections from '@/commponents/LandingComponents/Connection'
+import Testimonials from '@/commponents/LandingComponents/Testinonials'
+import Footer from '@/commponents/LandingComponents/Footer'
 
 
 
@@ -29,6 +30,7 @@ const Landing = () => {
       
       <Navbar />
       <Hero />
+      <Destinations />
       <Gallery />
       <About />
       <Features />

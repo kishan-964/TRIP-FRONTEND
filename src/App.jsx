@@ -5,6 +5,7 @@ import About from './pages/About'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
+import ClientDashboard from './pages/client/ClientDashboard'
 import useAuth from './hooks/useAuth'
 import { jwtDecode } from 'jwt-decode'
 import AppLayout from './layouts/AppLayout'
@@ -16,6 +17,7 @@ import Bookings from './pages/bookings/bookings'
 import MyBookings from './pages/client/MyBookings'
 import ContactList from './pages/contacts/ContactList'
 import Blogs from './pages/client/Blog'
+import AddBlog from './pages/client/AddBlog'
 
 
 const App = () => {
@@ -71,10 +73,11 @@ const App = () => {
         <Route path="/bookings" element={<Bookings />} />
         <Route path="/contact-list" element={<ContactList />} />
         
-
+        <Route path="/client/dashboard" element={<ClientDashboard />} />
         <Route path="/client/trips" element={<ViewTrips />} />
         <Route path="/client/bookings" element={<MyBookings />} />
         <Route path="/client/blog" element={<Blogs />} />
+        <Route path="/client/blog/add" element={<AddBlog />} />
         
         </Route>
       </Routes>

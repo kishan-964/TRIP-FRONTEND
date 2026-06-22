@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
     Card,
     CardAction,
@@ -51,12 +52,12 @@ const Blogs = () => {
                     <CardDescription>Show all the blogs of different trip.</CardDescription>
 
                     <CardAction>
-                        <a href="/client/blogs/add">
+                        <Link to="/client/blog/add">
                         <Button>
                             <Plus />
                             Post Blog
                         </Button>
-                        </a>
+                        </Link>
                     </CardAction>
                 </CardHeader>
                 <CardContent>

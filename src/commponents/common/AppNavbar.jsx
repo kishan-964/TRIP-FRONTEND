@@ -1,7 +1,7 @@
 import React from 'react'
 import CustomButtton from './CustomButtton'
 import { Plane } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useAuth from '@/hooks/useAuth'
 import { jwtDecode } from 'jwt-decode'
 
@@ -14,50 +14,41 @@ const Navbar = () => {
    const handleLogout = () => {
     logout();
     navigate("/login")
-    // clear user session or token
-    // direct goto Landing page
    }
 
-   const decodedToken = token ? jwtDecode(token) : null;
+   const decodedToken = token ? jwtDecode(token) : {};
 
   return (
-    
-    <header className='px-20 py-6 flex items-center justify-between bg-violet-50' >
-      {/* left part */}
+    <header className='px-8 py-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between bg-slate-950/95 border-b border-slate-800 text-white'>
       <div>
-        
-       <h1 className='text-4xl font-semibold'>
-         <span className='text-blue-500 text-5xl'>C</span>halti
-         <Plane className='inline-block text-blue-500 mx-2' size={35} />
-         <span className='text-blue-500'>T</span>rip
+       <h1 className='text-3xl md:text-4xl font-semibold'>
+         <span className='text-cyan-400 text-5xl'>C</span>halti
+         <Plane className='inline-block text-cyan-400 mx-2' size={32} />
+         <span className='text-cyan-400'>T</span>rip
        </h1>
-       </div>
-         {/* right part */}
-        <div className='flex items-center gap-16'>
-          <nav className='space-x-8 text-lg text-gray-700 font-medium [&>a]:hover:text-black [&>a]:hover:underline'>
- {
-            decodedToken.role === "admin" ?
-              <>
-                <a href="/dashboard">Dashboard</a>
-                <a href="/trips">Trips</a>
-                <a href="/bookings">Bookings</a>
-                <a href="/contact-list">Contact List</a>
-                <a href="/blogs">Blogs</a>
-              </>
-              :
+      </div>
+      <div className='flex flex-col gap-4 md:flex-row md:items-center'>
+        <nav className='flex flex-wrap items-center gap-6 text-lg text-slate-200 font-medium'>
+          {decodedToken.role === "admin" ? (
             <>
-            
-            <a href="/dashboard">Dashboard</a>
-            <a href="/trips">Trip</a>
-            <a href="/bookings">Bookings</a>
-            <a href="/blogs">Blogs</a>
+              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/trips">Trips</Link>
+              <Link to="/bookings">Bookings</Link>
+              <Link to="/contact-list">Contact List</Link>
             </>
-}
-          </nav>
-           <div onClick={handleLogout}>
-          <CustomButtton text="Logout" href="/logout" />
-          </div>
-           </div>
+          ) : (
+            <>
+              <Link to="/client/dashboard">Dashboard</Link>
+              <Link to="/client/trips">Trips</Link>
+              <Link to="/client/bookings">Bookings</Link>
+              <Link to="/client/blog">Blogs</Link>
+            </>
+          )}
+        </nav>
+        <div onClick={handleLogout}>
+          <CustomButtton text="Logout" />
+        </div>
+      </div>
     </header>
   )
 }
