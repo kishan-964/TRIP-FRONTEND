@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Star, MapPin } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Gallery() {
   const [hoveredId, setHoveredId] = useState(null);
@@ -199,19 +200,16 @@ export default function Gallery() {
                     </div>
 
                     {/* Button */}
-                    <button className="w-full px-4 py-2 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-lg hover:shadow-lg transition-all duration-300 font-semibold">
+                    <Link
+                      to="/register"
+                      className="w-full inline-flex px-4 py-2 justify-center bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-lg hover:shadow-lg transition-all duration-300 font-semibold"
+                    >
                       Book Now
-                    </button>
+                    </Link>
                   </div>
                 </div>
 
-                {/* Static Info - visible without hover */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent group-hover:opacity-0 transition-opacity duration-300">
-                  <h3 className="text-xl font-bold text-white mb-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-300">{item.location}</p>
-                </div>
+                
               </div>
             </motion.div>
           ))}

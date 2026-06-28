@@ -7,6 +7,7 @@ import {
   Shield,
   HeadsetIcon,
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Features() {
   const containerVariants = {
@@ -141,9 +142,12 @@ export default function Features() {
           <p className="text-lg text-muted-foreground mb-6">
             Ready to experience the best travel platform?
           </p>
-          <button className="px-8 py-4 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-lg hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 font-semibold">
+          <Link
+            to="/register"
+            className="inline-flex px-8 py-4 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-lg hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 font-semibold"
+          >
             Get Started for Free
-          </button>
+          </Link>
         </motion.div>
       </div>
 

@@ -94,7 +94,7 @@ export default function Footer() {
                 <span className="text-white font-bold text-lg">✈</span>
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Wanderlust
+                Chalti-Trip
               </span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -152,7 +152,7 @@ export default function Footer() {
           transition={{ delay: 0.3 }}
           className="flex flex-col md:flex-row justify-between items-center text-muted-foreground text-sm"
         >
-          <p>&copy; 2026 Wanderlust. All rights reserved.</p>
+          <p>&copy; 2026 Chalti-Trip. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a
               href="#"
