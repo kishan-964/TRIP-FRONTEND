@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Zap, Users, Globe, TrendingUp, ArrowRight, MapPin, Award, Heart } from 'lucide-react';
 
@@ -316,13 +317,16 @@ export default function Connection() {
           <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8">
             Ready to connect with the world's travel community?
           </p>
-          <button className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary via-accent to-secondary rounded-full font-bold text-white hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 text-sm sm:text-base overflow-hidden">
+          <Link
+            to="/register"
+            className="group relative inline-flex px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary via-accent to-secondary rounded-full font-bold text-white hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 text-sm sm:text-base overflow-hidden"
+          >
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-full"></div>
             <span className="relative flex items-center justify-center gap-2">
               Start Connecting
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>
